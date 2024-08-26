@@ -1,0 +1,4 @@
+PyQt5==5.15.6
+requests==2.26.0
+python-dotenv==0.19.2
+packaging==21.3
