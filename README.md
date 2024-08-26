@@ -13,7 +13,7 @@ The Operativo Installer Console is a Python-based tool designed to facilitate th
 
 ## Prerequisites
 
-- **Python 3.10 or higher**: Ensure that Python is installed on your system.
+- **Python 3.10 or higher**
 - **ADB (Android Debug Bridge)**: ADB must be installed and configured in your system's PATH.
 - **GitHub Token**: A personal access token (PAT) from GitHub is required to access the GitHub API.
 
@@ -55,9 +55,3 @@ Simply use the run.bat executable, or:
 
 4. **Install the Application**:
    - If an update is available, the APK will be downloaded. Click on "Install Operativo" to install the APK on the connected device.
-
-- **Changelog**: Document the history of changes in the project.
-- **FAQ**: Include common questions and answers related to the project.
-- **Roadmap**: Outline the future plans or features for the project.
-
-This `README.md` file serves as a comprehensive guide for users and developers alike, providing all the necessary information to get started with the Operativo Installer Console. You can customize the sections as needed to fit the specific details of your project.
