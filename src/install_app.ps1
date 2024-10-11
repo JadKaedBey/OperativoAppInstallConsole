@@ -1,7 +1,7 @@
 # install_app.ps1
 
 $adb_path = ".\platform-tools\adb.exe"
-$apk_path = ".\operativo_latest.apk"  # Make sure this path is correct
+$apk_path = ".\operativo_latest.apk"  
 
 # Install the APK on the connected device
 & $adb_path install -r $apk_path

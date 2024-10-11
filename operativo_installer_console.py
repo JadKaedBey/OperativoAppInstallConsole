@@ -7,6 +7,7 @@ from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QLa
 from PyQt5.QtWidgets import QDialog, QVBoxLayout, QProgressBar, QLabel
 from PyQt5.QtCore import QTimer, Qt
 from PyQt5.QtCore import QThread, pyqtSignal
+from PyQt5.QtWidgets import QComboBox  
 from dotenv import load_dotenv
 import traceback
 
@@ -150,10 +151,14 @@ def get_latest_release():
 
 def download_apk(latest_release):
     try:
+        # Get the selected APK type from the combobox
+        selected_apk_type = apk_selector.currentText()
+        apk_filename = "app-release-operatore.apk" if selected_apk_type == "Normal" else "app-release-nesting.apk"
+        
         # Look for the APK asset in the release's assets
         apk_asset = None
         for asset in latest_release.get('assets', []):
-            if asset['name'].endswith('.apk'):
+            if asset['name'] == apk_filename:
                 apk_asset = asset
                 break
         
@@ -195,8 +200,7 @@ def download_apk(latest_release):
         error_message = ''.join(traceback.format_exception(None, e, e.__traceback__))
         print(f"Unexpected Error: {error_message}")
         QMessageBox.critical(window, "Unexpected Error", f"An unexpected error occurred: {e}")
-
-
+        
 # Function to check for update and initiate APK download
 def check_for_update():
     latest_release = get_latest_release()
@@ -266,6 +270,11 @@ layout.addWidget(device_id_label)
 installed_version_label = QLabel("Installed Version: N/A")
 installed_version_label.setAlignment(Qt.AlignCenter)
 layout.addWidget(installed_version_label)
+
+apk_selector = QComboBox()
+apk_selector.addItem("Normal")
+apk_selector.addItem("Nesting")
+layout.addWidget(apk_selector)
 
 check_update_button = QPushButton("Check for Update")
 check_update_button.setEnabled(False)
