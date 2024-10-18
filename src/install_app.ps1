@@ -2,6 +2,10 @@
 
 $adb_path = ".\platform-tools\adb.exe"
 $apk_path = ".\operativo_latest.apk"  
+$package_name = "com.example.drumbeat" 
+
+# Uninstall the existing APK (ignore errors if not installed)
+& $adb_path uninstall $package_name
 
 # Install the APK on the connected device
 & $adb_path install -r $apk_path

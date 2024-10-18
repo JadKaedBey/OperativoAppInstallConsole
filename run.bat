@@ -6,6 +6,7 @@ if not exist venv (
 )
 
 REM Activate the virtual environment
+echo Found env, proceeding to activate 
 call venv\Scripts\activate
 
 REM Install required packages
